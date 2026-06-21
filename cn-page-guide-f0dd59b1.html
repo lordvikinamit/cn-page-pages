@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>信息索引 · 雷速资料整理</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f3f9fc;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1b2e35;
+      line-height: 1.65;
+      padding: 2rem 1.25rem 3rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page {
+      max-width: 840px;
+      width: 100%;
+    }
+
+    /* 网格背景卡片氛围 */
+    .intro-card {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 2rem 2rem 2.5rem;
+      box-shadow: 0 6px 20px rgba(0, 40, 50, 0.04), 0 0 0 1px rgba(0, 128, 128, 0.03);
+      background-image: 
+        radial-gradient(circle at 18% 30%, rgba(0, 150, 136, 0.04) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(0, 188, 212, 0.03) 0%, transparent 50%);
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      transition: box-shadow 0.2s ease;
+    }
+
+    /* 文章标题 —— 简洁博客式 */
+    .article-title {
+      font-size: 2.2rem;
+      font-weight: 550;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+      color: #0a2e38;
+    }
+
+    .sub-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
+      color: #4b6f7a;
+      border-bottom: 1px solid #dce9ed;
+      padding-bottom: 1rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .sub-meta span {
+      background: #e0f0f3;
+      padding: 0.1rem 0.8rem;
+      border-radius: 30px;
+      color: #1a5b66;
+      font-size: 0.8rem;
+    }
+
+    .lead {
+      font-size: 1.08rem;
+      background: #e6f4f7;
+      padding: 1rem 1.3rem;
+      border-radius: 18px;
+      margin-bottom: 2rem;
+      color: #15434e;
+      border-left: 4px solid #26a69a;
+      font-weight: 430;
+    }
+
+    /* 多段正文段落 */
+    .content p {
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+    }
+
+    .content a {
+      color: #00796b;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border-bottom 0.15s, background 0.15s;
+    }
+
+    .content a:hover {
+      border-bottom-color: #26a69a;
+      background: #e0f2f1;
+      border-radius: 2px;
+    }
+
+    .quote-block {
+      background: #f0f9fb;
+      padding: 1.5rem 1.8rem;
+      border-radius: 24px;
+      margin: 2rem 0 2rem;
+      box-shadow: inset 0 1px 4px rgba(0, 120, 100, 0.05);
+      border: 1px solid #d4e8ec;
+      font-style: normal;
+    }
+
+    .quote-block p {
+      margin-bottom: 0.4rem;
+      font-size: 0.98rem;
+    }
+
+    .quote-block .attribution {
+      font-size: 0.85rem;
+      margin-top: 0.6rem;
+      color: #3f7a85;
+      letter-spacing: 0.01em;
+    }
+
+    .grid-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin: 2.5rem 0 1.8rem;
+    }
+
+    .grid-item {
+      background: #f9fdff;
+      border-radius: 24px;
+      padding: 1.3rem 1.2rem;
+      box-shadow: 0 2px 8px rgba(0, 60, 70, 0.04);
+      border: 1px solid #e0eef2;
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+
+    .grid-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0, 100, 100, 0.06);
+      border-color: #b2dfdb;
+    }
+
+    .grid-item h3 {
+      font-size: 1.1rem;
+      font-weight: 530;
+      color: #0f4857;
+      margin-bottom: 0.4rem;
+    }
+
+    .grid-item p {
+      font-size: 0.92rem;
+      color: #2d5b67;
+      line-height: 1.5;
+    }
+
+    .faq-mini {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 1.8rem 1.8rem 1.2rem;
+      margin-top: 2.2rem;
+      border: 1px solid #d9e7eb;
+    }
+
+    .faq-mini h4 {
+      font-weight: 500;
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+      color: #005b5b;
+    }
+
+    .faq-mini details {
+      margin-bottom: 0.75rem;
+      border-bottom: 1px dashed #cee1e6;
+      padding-bottom: 0.5rem;
+    }
+
+    .faq-mini summary {
+      font-weight: 470;
+      cursor: pointer;
+      padding: 0.4rem 0;
+      color: #125e6b;
+      font-size: 0.95rem;
+    }
+
+    .faq-mini summary::-webkit-details-marker {
+      color: #26a69a;
+    }
+
+    .faq-mini details p {
+      margin-top: 0.3rem;
+      font-size: 0.9rem;
+      color: #2d5d69;
+      line-height: 1.5;
+    }
+
+    .access-sentence {
+      background: #e0f2f1;
+      padding: 1.4rem 1.8rem;
+      border-radius: 30px;
+      margin: 2.5rem 0 0.5rem;
+      text-align: left;
+      border: 1px solid #b2dfdb;
+      font-size: 1rem;
+    }
+
+    .access-sentence strong {
+      font-weight: 500;
+      color: #004d40;
+    }
+
+    .footer-note {
+      margin-top: 2.5rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #6e919b;
+      letter-spacing: 0.02em;
+    }
+
+    @media (max-width: 580px) {
+      body {
+        padding: 1.25rem 0.9rem;
+      }
+
+      .intro-card {
+        padding: 1.5rem 1.2rem 2rem;
+        border-radius: 24px;
+      }
+
+      .article-title {
+        font-size: 1.7rem;
+      }
+
+      .grid-cards {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .lead {
+        font-size: 0.98rem;
+        padding: 0.9rem 1.1rem;
+      }
+
+      .quote-block {
+        padding: 1.2rem 1.3rem;
+      }
+
+      .faq-mini {
+        padding: 1.2rem 1rem 0.6rem;
+      }
+
+      .access-sentence {
+        padding: 1rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="intro-card">
+    <h1 class="article-title">资料整理中的索引逻辑</h1>
+    <div class="sub-meta">
+      <span>信息密度 · 梳理框架</span>
+      <span>分类节点</span>
+    </div>
+
+    <!-- 导语 -->
+    <div class="lead">
+      当信息体量超过日常追踪范围，有效的索引结构就成为检索与再发现的前提。本文从内容整理的实际场景出发，围绕 <strong>雷速</strong> 及其相关资源组织方式，讨论几个值得关注的整理原则。
+    </div>
+
+    <!-- 多段正文 -->
+    <div class="content">
+      <p>
+        在长期维护一个信息聚合点时，命名规范与层级划分往往决定了后续调用的效率。以体育数据类内容为例，赛程、统计、队伍档案等模块若采用统一前缀与日期编码，可大幅降低重复排查成本。<a href="https://cn-page-leisu.com">雷速</a> 所代表的资源聚合思路，同样遵循类似的索引习惯——把散落条目归入可预期的分类路径之下。
+      </p>
+
+      <p>
+        整理行为本身也是一种隐性元数据构建。每一条被标记、被归类的信息，都相当于在知识图谱中埋入一个坐标。对于经常需要回溯旧信息的用户而言，一个带有摘要和标签的索引条目，远比简单的时间线排列更有价值。这种价值在数据量超过数百条时尤其明显。
+      </p>
+
+      <p>
+        另一个容易被忽略的细节是版本与来源的记录。当多个来源的同类信息同时存在时，注明抓取时间、原始出处以及数据状态（已核实/待确认）能避免后期混淆。在 <a href="https://cn-page-leisu.com">雷速</a> 相关的资料整理实践中，我们常把这一步骤称为“锚定”——让每一条引用都有可追溯的起点。
+      </p>
+    </div>
+
+    <!-- 引用提示 -->
+    <div class="quote-block">
+      <p>“索引不只是查找到一条记录，而是让人理解这条记录在整体框架中的位置。好的索引本身就是一次微型的知识组织。”</p>
+      <div class="attribution">—— 摘自信息整理笔记 · 2025</div>
+    </div>
+
+    <!-- 网格卡片：特点/场景 -->
+    <div class="grid-cards">
+      <div class="grid-item">
+        <h3>分类颗粒度</h3>
+        <p>按赛事类型、时效、可信度分层，避免单一标签过载。适当使用复合标签（如“西甲·2025·统计”）提升筛选精度。</p>
+      </div>
+      <div class="grid-item">
+        <h3>跨索引关联</h3>
+        <p>当同一个实体出现在多个类别时，建立交叉引用。例如球队页面同时链接到相关赛季数据和转会记录。</p>
+      </div>
+      <div class="grid-item">
+        <h3>低频内容处理</h3>
+        <p>长期未更新的资料可移至“归档”分区，但仍保留在全局搜索索引中，避免彻底丢失。</p>
+      </div>
+      <div class="grid-item">
+        <h3>预览摘要</h3>
+        <p>每条索引附带一行摘要或关键数值，减少逐条点开的操作成本。适用于动态更新的表格类页面。</p>
+      </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+      <h4>整理索引时常见疑问</h4>
+      <details>
+        <summary>索引需要包含哪些基础字段？</summary>
+        <p>通常包括：标题、日期、来源、简短描述、标签（2‑5个）、链接或引用ID。根据内容类型可增加状态栏或版本号。</p>
+      </details>
+      <details>
+        <summary>如何避免索引膨胀后难以维护？</summary>
+        <p>定期合并相似条目，删除重复或无效引用。为每个分类设定最大条目上限（例如200条），超出后归档旧数据。</p>
+      </details>
+      <details>
+        <summary>多人协作时索引格式如何统一？</summary>
+        <p>提前定义字段模板和书写范例，使用表格或轻量数据库。推荐采用 Markdown 表格 + 标签列，兼容性好。</p>
+      </details>
+    </div>
+
+    <!-- 访问句（自然嵌入链接） -->
+    <div class="access-sentence">
+      <strong>访问参考：</strong> 若需查阅本次讨论所涉及的聚合资源示例，可直接浏览 <a href="https://cn-page-leisu.com">雷速</a> 的相关索引页，其中包含了分类目录与近期更新条目。
+    </div>
+
+    <div class="footer-note">
+      整理逻辑 · 2025
+    </div>
+  </div>
+</div>
+</body>
+</html>
