@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MK体育 · 简洁说明</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background-color: #fafafa;
+      color: #1e1e1e;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem 5rem;
+    }
+
+    /* 标题层级 */
+    .pre-title {
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 0.75rem;
+      font-weight: 500;
+    }
+
+    h1 {
+      font-size: 1.95rem;
+      font-weight: 550;
+      line-height: 1.25;
+      margin-bottom: 2.5rem;
+      letter-spacing: -0.01em;
+      color: #111;
+    }
+
+    h2 {
+      font-size: 1.15rem;
+      font-weight: 550;
+      margin: 2.2rem 0 0.8rem;
+      color: #222;
+      border-left: 3px solid #d4d4d4;
+      padding-left: 0.85rem;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    /* 开场短句用引述风格 */
+    .opening {
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: #2a2a2a;
+      border-left: 2px solid #bbb;
+      padding-left: 1.2rem;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    /* 特点列表：极简卡片 */
+    .feature-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin: 1.2rem 0 1.8rem;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: baseline;
+      gap: 0.65rem;
+      padding: 0.6rem 0.75rem 0.6rem 0.9rem;
+      background: #ffffff;
+      border-radius: 5px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+      border: 1px solid #efefef;
+      transition: background 0.1s ease;
+    }
+
+    .feature-item:hover {
+      background: #f7f7f7;
+    }
+
+    .feature-marker {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.35rem;
+      height: 1.35rem;
+      border-radius: 50%;
+      background: #eaeaea;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #444;
+      flex-shrink: 0;
+    }
+
+    .feature-text {
+      font-size: 0.98rem;
+      color: #2c2c2c;
+    }
+
+    /* 温和提示 / FAQ 摘要 */
+    .note-block {
+      background: #f2f2f2;
+      border-radius: 8px;
+      padding: 1.2rem 1.4rem;
+      margin: 1.8rem 0 1.2rem;
+    }
+
+    .note-block p {
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .note-block p:last-child {
+      margin-bottom: 0;
+    }
+
+    .faq-label {
+      font-weight: 550;
+      color: #1a1a1a;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e4e4e4;
+      margin: 2.4rem 0 1.8rem;
+    }
+
+    .footer-note {
+      font-size: 0.9rem;
+      color: #777;
+      margin-top: 2.8rem;
+      border-top: 1px solid #eaeaea;
+      padding-top: 1.5rem;
+    }
+
+    .footer-note a {
+      color: #2f2f2f;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-color: #c0c0c0;
+    }
+
+    .footer-note a:hover {
+      text-decoration-color: #111;
+    }
+
+    /* 响应式微调 */
+    @media (max-width: 500px) {
+      .page { padding: 2.8rem 1rem 4rem; }
+      h1 { font-size: 1.7rem; }
+      .feature-item { padding: 0.5rem 0.6rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- 开场短句 -->
+    <div class="pre-title">· 简明说明</div>
+    <div class="opening">
+      一个稳定的入口，往往比功能的数量更重要。<br>
+      我们试着把“去哪里”这件事梳理清楚。
+    </div>
+
+    <!-- 承接段落 -->
+    <p>
+      对于经常使用 <a href="https://mobilemain-mk.com" style="color:#1e1e1e; text-decoration: underline; text-underline-offset: 2px;">MK体育</a> 的用户来说，页面加载是否顺畅、入口是否清晰，直接影响日常体验。这个站点主要承担移动端核心页面的跳转与信息聚合，不做复杂装饰，目标就是保持稳定、直接。
+    </p>
+    <p>
+      从实际使用场景来看，大部分访问者并不需要过多的引导动画或冗余菜单。他们更关心：网址是否有效、内容更新是否及时、操作路径是否简短。基于这些，我们整理了下面几个基本特点，帮助新用户快速建立认知。
+    </p>
+
+    <!-- 特点列表 -->
+    <h2>几个基本特点</h2>
+    <div class="feature-grid">
+      <div class="feature-item">
+        <span class="feature-marker">1</span>
+        <span class="feature-text"><strong>轻量结构</strong> · 页面以内容为主，无多余弹窗或自动播放，减少加载干扰。</span>
+      </div>
+      <div class="feature-item">
+        <span class="feature-marker">2</span>
+        <span class="feature-text"><strong>适配移动端</strong> · 针对手机屏幕调整文字大小与按钮间距，横竖屏均保持可读。</span>
+      </div>
+      <div class="feature-item">
+        <span class="feature-marker">3</span>
+        <span class="feature-text"><strong>信息透明</strong> · 主要导航与说明文字直接展示，不隐藏关键选项。</span>
+      </div>
+      <div class="feature-item">
+        <span class="feature-marker">4</span>
+        <span class="feature-text"><strong>入口稳定</strong> · 域名长期维护，核心链接保持不变，方便保存或分享。</span>
+      </div>
+    </div>
+
+    <!-- 场景 / 补充说明 -->
+    <p>
+      如果你之前通过其他方式进入，偶尔会遇到页面打不开或跳转迟缓的情况。这时候不妨直接输入 <a href="https://mobilemain-mk.com" style="color:#1e1e1e; text-decoration: underline; text-underline-offset: 2px;">MK体育</a> 的地址，大多数问题都出在中间跳转环节，绕过不必要的重定向通常会更可靠。
+    </p>
+
+    <!-- 温和提示 / FAQ 摘要 -->
+    <div class="note-block">
+      <p><span class="faq-label">常见疑问</span> · 网站是否需要注册？</p>
+      <p>不需要。当前页面主要提供信息聚合和入口功能，不涉及用户注册或个人数据收集。你可以直接使用页面中提供的链接前往对应内容。</p>
+      <p style="margin-top:0.6rem;"><span class="faq-label">兼容性</span> · 推荐使用最新版 Chrome、Safari 或 Edge 浏览器，部分旧版本可能无法完整显示样式。</p>
+    </div>
+
+    <hr>
+
+    <!-- 温和结尾 -->
+    <p>
+      整理这些内容的目的，是让新接触的人能快速了解这个站点的定位：一个简洁、直接的移动端页面，重点在于信息可读和入口可用。没有复杂的功能堆叠，也不打算做频繁改版。
+    </p>
+    <p>
+      如果你需要稳定的使用体验，可以考虑将 <a href="https://mobilemain-mk.com" style="color:#1e1e1e; text-decoration: underline; text-underline-offset: 2px;">MK体育</a> 加入浏览器书签，方便日后直接访问。同时也建议定期清理缓存，避免旧版本样式干扰显示。
+    </p>
+
+    <div class="footer-note">
+      MK体育 · 移动端页面说明 · 内容整理于近期版本
+    </div>
+  </div>
+</body>
+</html>
